@@ -1,19 +1,21 @@
-(define (make-star-characters n)
-  (string-repeat "*" n))
+((lambda ()
 
-(define (string-repeat s times)
-  (define (string-repeat-iter base s times)
-    (if (= times 0)
-        base
-        (string-repeat-iter (string-append base s) s (- times 1))))
-  (string-repeat-iter "" s times))
+   (define (make-star-characters n)
+     (string-repeat "*" n))
 
-(define (make-sequence n)
-  (define (make-sequence-iter list n max)
-    (if (> n max)
-        list
-        (make-sequence-iter (append list (cons n '())) (+ n 1) max)))
-  (make-sequence-iter (list) 0 n))
+   (define (string-repeat s times)
+     (define (string-repeat-iter base s times)
+       (if (= times 0)
+           base
+           (string-repeat-iter (string-append base s) s (- times 1))))
+     (string-repeat-iter "" s times))
 
-(for-each print
-          (map make-star-characters (make-sequence 5)))
+   (define (make-sequence n)
+     (define (make-sequence-iter list n max)
+       (if (> n max)
+           list
+           (make-sequence-iter (append list (cons n '())) (+ n 1) max)))
+     (make-sequence-iter (list) 0 n))
+
+   (for-each print
+             (map make-star-characters (make-sequence 5)))))
