@@ -7,7 +7,7 @@
     //   4, => ****
     //   5  => *****
     // ]
-    printStars = (stars) => {
+    const printStars = (stars) => {
         stars.forEach((length) => {
             console.log('*'.repeat(length))
         })
